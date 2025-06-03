@@ -63,25 +63,44 @@
       <section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
          <h3 class="uk-margin-xlarge-left uk-light">About Me</h3>
          <!-- Change here to ur paragraph -->
-         <p class="uk-margin-xlarge-left uk-margin-xlarge-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend posuere tortor vel lobortis. Morbi pretium in sapien non suscipit. Nam ac efficitur enim. Vestibulum accumsan erat sit amet nulla commodo, nec varius felis aliquam. Aliquam suscipit mauris lacus, at euismod purus tempor aliquam. Donec varius sem nisl. Fusce augue tortor, hendrerit at elit quis, aliquet blandit eros. Nam gravida sem velit, eu placerat nunc commodo ut. <br><br>Maecenas ultricies magna nec nisi egestas, in posuere velit tincidunt. Nam quis turpis non ligula dapibus bibendum sit amet at felis. Vestibulum ornare tempor nulla, quis sodales ex consequat vel. Morbi sollicitudin ligula eget mattis euismod. Nulla scelerisque malesuada arcu a vulputate. Phasellus ac lectus consequat, eleifend libero id, tincidunt lectus. Sed tempus gravida odio, sed semper neque aliquet imperdiet.</p>
-         <a href="https://onedrive.live.com/embed?cid=2e2ee5061fe8e99b&id=2E2EE5061FE8E99B!s831f02a57edc4b5ca3d00f98f7541cf0&resid=2E2EE5061FE8E99B!s831f02a57edc4b5ca3d00f98f7541cf0&ithint=file,pdf&embed=1&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8yZTJlZTUwNjFmZThlOTliL0lRU2xBaC1EM0g1Y1M2UFFENWozVkJ6d0FXN2czNDVoa0M4QUFNaG0wcnhJenU0" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Download Resume</a></br></br>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/prabhjeet6" class="uk-button-text uk-light" uk-icon="github"></a>
-         &nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/prabhjeet6/" class=" uk-light uk-button-text" uk-icon="linkedin"></a>
+         <p class="uk-margin-xlarge-left uk-margin-xlarge-right">I'm a backend software developer with around 11 years of experience, mainly working with Java and Spring. Over the years, I’ve contributed to building and maintaining backend systems in different environments, from monolithic applications to microservices.<br><br>
+
+I’m comfortable working with technologies like  Redis, Quarkus, and AWS,and Kafka and I try to write code that’s clean, maintainable, and efficient. While I still have areas I’m working to improve like focus, consistency, and keeping up with newer toolsI enjoy learning through hands-on work and side projects.</p>
+         
+		 <a href="https://onedrive.live.com/embed?cid=2e2ee5061fe8e99b&id=2E2EE5061FE8E99B!s831f02a57edc4b5ca3d00f98f7541cf0&resid=2E2EE5061FE8E99B!s831f02a57edc4b5ca3d00f98f7541cf0&ithint=file,pdf&embed=1&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8yZTJlZTUwNjFmZThlOTliL0lRU2xBaC1EM0g1Y1M2UFFENWozVkJ6d0FXN2czNDVoa0M4QUFNaG0wcnhJenU0" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Download Resume</a>
+		 <br><br>
+         <a href="https://github.com/prabhjeet6" class="uk-button-text uk-light" uk-icon="github"></a>
+         &nbsp;<a href="https://www.linkedin.com/in/prabhjeet6/" class=" uk-light uk-button-text" uk-icon="linkedin"></a>
          <!-- About Me Ends -->
-      </section>
+      </section>  
       <!-- Projects Section -->
       <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
       <section id="projects" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
          <h3 class="uk-margin-xlarge-left uk-light">Projects</h3>
-         <p class="uk-margin-xlarge-left">Projects that i've been working on</p>
+         <p class="uk-margin-xlarge-left">Have a look at my recent project</p>
          <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
             <!-- Change all of this to ur projects -->
             <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-               <h4>Project Name</h4>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-               <a class="uk-button-text uk-text-decoration-none" href="">
+               <h4>Schoolmonitor</h4>
+               <p>Schoolmonitor is a one DB per tenant SAAS web application. It uses Angular Universal with Server Side Rendering and Internationalization. It supports English and Punjabi. Backend uses Spring Boot and Spring Security with JWT and Spring Data JPA. DBMS used is MySQL . The Application is responsive at Desktop level.
+                  Admin can upload student details in predefined Excel format and those will be inserted in respective School's database. It uses Apache POI library for this purpose. 
+                  In the Online Coursework module, videos are stored in AWS S3 bucket and their Thumbnails are generated through AWS Lambda function every time a video is uploaded in the bucket.
+                  Videos are indexed using Elastic Search and a web speech API is also integrated to enable search when someone speaks. This Module also uses Redis Cache for better Response times.
+                  In Password Reset functionality, Account verification is done through an OTP sent on user entered registered Email Id along with selected School Name. User can, then, reset the password through Password change screen.
+               </p>
+               <br>
+               <p>Video Credits: Sony Entertainment Television (Indian Idol junior)</p>
+               <a class="uk-button-text uk-text-decoration-none" href="https://www.youtube.com/watch?v=yYCFH_Mx4uI">
                <span uk-icon="icon: link">
-               </span> Website Link </a>
+               </span> Video Demonstration </a>
+			   
+			   <a class="uk-button-text uk-text-decoration-none" href="https://github.com/prabhjeet6/SchoolmonitorBackend">
+               <span uk-icon="icon: link">
+               </span> Backend Repository </a>
+			   
+			    <a class="uk-button-text uk-text-decoration-none" href="https://github.com/prabhjeet6/schoolmonitor">
+               <span uk-icon="icon: link">
+               </span> Frontend Repository </a>
             </div>
          </div>
          <br>
@@ -119,7 +138,6 @@
                <span uk-icon="icon: link">
                </span> Website Link </a>
             </div>
-         </div>
          <br>
       </section>
       <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
