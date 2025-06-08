@@ -8,9 +8,31 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/uikit.js"></script>
     <script src="js/uikit-icons.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          emailjs.init("q4_l6itp-z95ptdu-");
+
+          document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.log("Form submitted!");
+
+            emailjs.sendForm('service_x9hf09u', 'template_08477jw', this)
+              .then(() => {
+                alert("Message sent!");
+              }, (err) => {
+                console.error("Failed:", err);
+                alert("Failed to send message.");
+              });
+          });
+        });
+    </script>
+
     <title>Prabhjeet S.</title>
 </head>
-
 <body>
 <!-- Navigation Bar -->
 <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right"
@@ -166,29 +188,29 @@
     <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
         <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
             <h4>Let's connect</h4>
+            <form id="contactForm">
+                <label class="uk-form-label" for="name">Name</label>
 
-            <label class="uk-form-label" for="name">Name</label>
-
-            <input class="uk-input" id="name" type="text" placeholder="Your Name" required>
-
-
-            <label class="uk-form-label" for="email">Email</label>
-
-            <input class="uk-input" id="email" type="email" placeholder="you@example.com" required>
+                <input class="uk-input" id="name" type="text" placeholder="Your Name" required>
 
 
-            <label class="uk-form-label" for="message">Message</label>
+                <label class="uk-form-label" for="email">Email</label>
 
-            <textarea class="uk-textarea" id="message" rows="5" placeholder="Your message..." required></textarea>
+                <input class="uk-input" id="email" type="email" placeholder="you@example.com" required>
 
-            <div>
+
+                <label class="uk-form-label" for="message">Message</label>
+
+                <textarea class="uk-textarea" id="message" rows="5" placeholder="Your message..." required></textarea>
+
+                <div>
+                    <br>
+                    <button class="uk-text-capitalize uk-button uk-button-secondary" type="submit">Submit</button>
+                    <br>
+                </div>
+
                 <br>
-                <a href="" class="   uk-text-capitalize uk-button uk-button-secondary">Submit</a>
-               <br>
-            </div>
-
-            <br>
-
+            </form>
         </div>
     </div>
     <br>
