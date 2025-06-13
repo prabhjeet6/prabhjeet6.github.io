@@ -16,19 +16,44 @@
         document.addEventListener('DOMContentLoaded', function () {
           emailjs.init("q4_l6itp-z95ptdu-");
 
+          const emailField = document.getElementById('email');
+
           document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            console.log("Form submitted!");
+            const email = emailField.value.trim();
+            if (!validateEmail(email)) {
+            showFormAlert('Please enter a valid email address.', 'warning');
+            return;
+           }
 
             emailjs.sendForm('service_x9hf09u', 'template_08477jw', this)
               .then(() => {
-                alert("Message sent!");
+                e.target.reset();
+                showFormAlert('Message sent successfully!', 'success');
               }, (err) => {
                 console.error("Failed:", err);
-                alert("Failed to send message.");
+                showFormAlert('Failed to send message. Please try again.', 'danger');
               });
           });
         });
+
+        function showFormAlert(message, status) {
+         const alertDiv = document.getElementById('formAlert');
+         alertDiv.className = `uk-alert uk-alert-${status}`;
+         alertDiv.innerHTML = `<a class="uk-alert-close" uk-close></a><p>${message}</p>`;
+         alertDiv.hidden = false;
+
+         setTimeout(() => {
+        alertDiv.hidden = true;
+      }, 5000);
+
+       }
+
+        function validateEmail(email) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(email);
+        }
+
     </script>
 
     <title>Prabhjeet S.</title>
@@ -88,6 +113,36 @@
     <br><a href="#about" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>About
     Me</a>
 </section>
+
+<script>
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://dev.to/feed/prabhjeet6')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("rss-posts");
+        container.innerHTML = ''; // Clear loading text
+
+        data.items.slice(0, 5).forEach(item => {
+          const post = document.createElement("div");
+          post.className = "uk-margin uk-card uk-card-secondary uk-card-body";
+
+          post.innerHTML = `
+            <h4>${item.title}</h4>
+            <p>${item.description.slice(0, 150)}...</p>
+            <a class="uk-button-text uk-text-decoration-none" href="${item.link}" target="_blank">
+              <span uk-icon="icon: link"></span> Read on Dev.to
+            </a>
+          `;
+
+          container.appendChild(post);
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load feed", err);
+        document.getElementById("rss-posts").innerHTML = "<p>Could not load blog posts.</p>";
+      });
+</script>
+
+
 <!-- Home Ends -->
 
 <br>
@@ -134,7 +189,7 @@
                 School's database. It uses Apache POI library for this purpose.
                 In the Online Coursework module, videos are stored in AWS S3 bucket and their Thumbnails are generated
                 through AWS Lambda function every time a video is uploaded in the bucket.
-                Videos are indexed using Elastic Search and a web speech API is also integrated to enable search when
+                Videos are indexed using ElasticSearch and a web speech API is also integrated to enable search when
                 someone speaks. This Module also uses Redis Cache for better Response times.
                 In Password Reset functionality, Account verification is done through an OTP sent on user entered
                 registered Email Id along with selected School Name. User can, then, reset the password through Password
@@ -164,18 +219,11 @@
 <!-- Blog Section -->
 <section id="blog" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
     <h3 class="uk-margin-xlarge-left uk-light">Blog</h3>
-    <p class="uk-margin-xlarge-left">Projects that i've been working on</p>
-    <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
-        <!-- Change all of this to ur projects -->
-        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-            <h4>Project Name</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
-            <a class="uk-button-text uk-text-decoration-none" href="">
-               <span uk-icon="icon: link">
-               </span> Website Link </a>
-        </div>
+    <p class="uk-margin-xlarge-left">Here are some of my blog posts</p>
+    <div id="rss-posts" class="uk-margin-xlarge-left uk-margin-xlarge-right">
+
     </div>
+
     <br>
 </section>
 <!-- Blog Section Ends -->
@@ -189,6 +237,8 @@
         <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
             <h4>Let's connect</h4>
             <form id="contactForm">
+                <div id="formAlert" class="uk-alert" uk-alert hidden></div>
+
                 <label class="uk-form-label" for="name">Name</label>
 
                 <input class="uk-input" id="name" type="text" placeholder="Your Name" required>
@@ -210,6 +260,7 @@
                 </div>
 
                 <br>
+
             </form>
         </div>
     </div>
